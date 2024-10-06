@@ -11,7 +11,6 @@
 #include <ranges>
 #include <string>
 #include <vector>
-#include <format>
 #include <thread>
 #include <fstream>
 #include <filesystem>
@@ -205,7 +204,7 @@ void runui(std::vector<std::string> &boards) {
         });
     });
 
-    std::string status = "";
+    std::string status;
     float gaug = 0;
     std::thread prepper;
     bool do_prep = true;
@@ -234,8 +233,7 @@ void runui(std::vector<std::string> &boards) {
                 const std::string ending = ".bin.zip";
                 int correctver = -1;
                 for (auto i = 0; i < 100; i++) {
-                    const std::string url_fmt = std::format("{}{}{}", url, i, ending);
-                    if (Head(cpr::Url{url_fmt}).status_code == 200) {
+                    if (const std::string url_fmt = std::format("{}{}{}", url, i, ending); Head(cpr::Url{url_fmt}).status_code == 200) {
                         correctver = i;
                         break;
                     }
