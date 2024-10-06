@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cmake-build-debug/_deps/cpr-src" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cmake-build-debug/_deps/csv-src" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cmake-build-debug/_deps/csv-src/python/pybind11" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cmake-build-debug/_deps/csv-src/tests/data" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cmake-build-debug/_deps/csv-src/tests/data/real_data/us_states" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cmake-build-debug/_deps/ftxui-src" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cmake-build-debug/_deps/json-src" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cmake-build-debug/_deps/zlib-src" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cmake-build-release/_deps/cpr-src" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cmake-build-release/_deps/csv-src" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cmake-build-release/_deps/csv-src/python/pybind11" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cmake-build-release/_deps/csv-src/tests/data" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cmake-build-release/_deps/csv-src/tests/data/real_data/us_states" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cmake-build-release/_deps/ftxui-src" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cmake-build-release/_deps/json-src" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cmake-build-release/_deps/zlib-src" vcs="Git" />
+  </component>
+</project>
