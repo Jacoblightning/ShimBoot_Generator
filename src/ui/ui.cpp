@@ -9,12 +9,12 @@
 #include <iostream>
 #include <ranges>
 #include <string>
-#include <tuple>
 #include <vector>
+#include <istream>
 
 using namespace ftxui;
 
-Component Wrap(std::string name, Component component) {
+Component Wrap(const std::string& name, const Component& component) {
     return Renderer(component, [name, component] {
       return hbox({
                  text(name),
