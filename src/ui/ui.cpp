@@ -10,6 +10,8 @@
 #include <ranges>
 #include <string>
 #include <vector>
+
+#include <sstream>
 #include <istream>
 
 using namespace ftxui;
