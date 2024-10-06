@@ -3,6 +3,9 @@
 //
 
 #include "init.h"
+#include "vars.h"
+
+std::string repo_url;
 
 bool hasEnding (std::string const &fullString, std::string const &ending) {
     if (fullString.length() >= ending.length()) {
@@ -23,7 +26,7 @@ void internet_check() {
 
 std::vector<std::string> init() {
     internet_check();
-    const std::string alt_api = "https://dl.darkn.bio/api?path=%2FShimboot%2F";
+    const std::string alt_api = "https://dl.darkn.bio/api";
     const std::string api_url = "https://api.github.com/repos/ading2210/shimboot/releases/latest";
     std::cout << "Checking if main repo is up." << std::endl;
     cpr::Response r = Get(cpr::Url{api_url});
@@ -34,20 +37,20 @@ std::vector<std::string> init() {
     std::vector<std::string> sboots;
     std::cout << "Scanning contents of repo." << std::endl;
     const json repo = json::parse(r.text);
-    const auto download_url = repo["assets"][0]["browser_download_url"].get<std::string>();
-    const std::string repo_url = download_url.substr(0,download_url.find_last_of("/")+1);
+    const std::string download_url = repo["assets"][0]["browser_download_url"].get<std::string>();
+    repo_url = download_url.substr(0,download_url.find_last_of("/")+1);
     std::cout << "Using repo: " << repo_url << std::endl;
-    for (const auto asset : repo["assets"]) {
+    for (const auto& asset : repo["assets"]) {
         auto asset_name = asset["name"].get<std::string>();
-        auto asseted = asset_name.substr(asset_name.find_last_of("_")+1);
-        asseted = asseted.substr(0, asseted.find_last_of("."));
+        auto asseted = asset_name.substr(asset_name.find_last_of('_')+1);
+        asseted = asseted.substr(0, asseted.find_last_of('.'));
         sboots.emplace_back(asseted);
     }
-    r = Get(cpr::Url{alt_api});
+    r = Get(cpr::Url{alt_api}, cpr::Parameters{{"path", "%2FShimboot%2F"}});
     if (r.status_code != 200) {
         return sboots;
     }
-    for (const json alto = json::parse(r.text); const auto asset : alto["folder"]["value"]) {
+    for (const json alto = json::parse(r.text); const auto& asset : alto["folder"]["value"]) {
         auto asset_name = asset["name"].get<std::string>();
         if (!hasEnding(asset_name, ".zip")) {
             continue;

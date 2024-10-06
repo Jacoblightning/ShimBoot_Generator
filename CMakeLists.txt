@@ -39,6 +39,7 @@ add_executable(ShimBoot_Generator src/main.cpp
         src/init.h
         src/inet/inet.cpp
         src/inet/inet.h
+        src/vars.h
 )
 
 target_compile_definitions(ShimBoot_Generator PRIVATE VERSION="${SBGenVersion}")
